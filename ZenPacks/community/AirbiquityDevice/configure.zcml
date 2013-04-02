@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:zcml="http://namespaces.zope.org/zcml">
+        <configure zcml:condition="installed Products.Zuul">
+        
+        	<include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+        	<!-- Global Info -->
+
+            <browser:directRouter
+                name="AirbiquityDevice_router"
+                for="*"
+                class=".routers.AirbiquityDeviceRouter"
+                namespace="Zenoss.remote"
+                permission="zenoss.View"
+            />
+    
+            <adapter
+                name="AirbiquityDeviceAdapter"
+                provides=".interfaces.IAirbiquityDeviceFacade"
+                for="*"
+                factory=".facades.AirbiquityDeviceFacade"
+            />
+                
+            <browser:resourceDirectory
+                    name="AirbiquityDevice"
+                    directory="resources"
+            />
+                
+            <!-- Component Info -->
+            <adapter factory=".info.AirbiquityTrunkInfo"
+                for=".AirbiquityTrunk.AirbiquityTrunk"
+                provides=".interfaces.IAirbiquityTrunkInfo"
+            />
+    
+            <browser:viewlet
+                name="js-AirbiquityTrunk"
+                paths="/++resource++AirbiquityDevice/airbiquitytrunk.js"
+                weight="10"
+                manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+                class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+                permission="zope2.Public"
+            />
+
+
+        
+        </configure>
+    </configure>
+

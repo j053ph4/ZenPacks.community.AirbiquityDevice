@@ -1,3 +1,4 @@
+
 (function() {
         
             function getPageContext() {
@@ -21,16 +22,18 @@
                                 labelAlign: 'top',
                                 footerStyle: 'padding-left: 0',
                                 border: false,
-                                items: [
-                {
-                xtype: 'textfield',
-                name: 'trunkID',
-                fieldLabel: _t('Trunk ID'),
-                id: "trunkIDField",
-                width: 260,
-                allowBlank: false,
-                },
-                ],
+                                items:                         [
+                            {
+                                fieldLabel: 'Trunk ID', 
+                                allowBlank: 'false', 
+                                name: 'trunkID', 
+                                width: 260, 
+                                id: 'trunkIDField', 
+                                xtype: 'textfield'
+                            }
+                        ]
+
+                                ,
                                 buttons: [{
                                     xtype: 'DialogButton',
                                     id: 'AirbiquityDevice-submit',
@@ -47,8 +50,11 @@
                                                     message: response.msg,
                                                     buttons: [{
                                                         xtype: 'DialogButton',
-                                                        text: _t('OK')
-                                                    }]
+                                                        text: _t('OK'),
+                                                        handler: function() { 
+                                                            window.top.location.reload();
+                                                            }
+                                                        }]
                                                 }).show();
                                             }
                                             else {
@@ -56,8 +62,11 @@
                                                     message: response.msg,
                                                     buttons: [{
                                                         xtype: 'DialogButton',
-                                                        text: _t('OK')
-                                                    }]
+                                                        text: _t('OK'),
+                                                        handler: function() { 
+                                                            window.top.location.reload();
+                                                            }
+                                                        }]
                                                 }).show();
                                             }
                                         });

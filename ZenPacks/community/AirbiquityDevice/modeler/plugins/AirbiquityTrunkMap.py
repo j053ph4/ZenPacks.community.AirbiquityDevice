@@ -5,7 +5,7 @@ from ZenPacks.community.AirbiquityDevice.Definition import *
 class AirbiquityTrunkMap(SnmpPlugin):
     
     compname = "os"
-    constr = Construct(Definition)
+    constr = Construct(AirbiquityDefinition)
     relname = constr.relname
     modname = constr.zenpackComponentModule
     baseid = constr.baseid

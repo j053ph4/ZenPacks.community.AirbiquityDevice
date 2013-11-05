@@ -4,34 +4,36 @@
         xmlns:browser="http://namespaces.zope.org/browser"
         xmlns:zcml="http://namespaces.zope.org/zcml">
         <configure zcml:condition="installed Products.Zuul">
-        
-        	<include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
-        	<!-- Global Info -->
+
+            <include package="Products.ZenUtils.extdirect.zope" file="meta.zcml"/>
+
+
+            <!-- ZenPack Info -->
 
             <browser:directRouter
                 name="AirbiquityDevice_router"
                 for="*"
-                class=".routers.AirbiquityDeviceRouter"
+                class="ZenPacks.community.AirbiquityDevice.routers.AirbiquityDeviceRouter"
                 namespace="Zenoss.remote"
                 permission="zenoss.View"
             />
     
             <adapter
                 name="AirbiquityDeviceAdapter"
-                provides=".interfaces.IAirbiquityDeviceFacade"
+                provides="ZenPacks.community.AirbiquityDevice.interfaces.IAirbiquityDeviceFacade"
                 for="*"
-                factory=".facades.AirbiquityDeviceFacade"
+                factory="ZenPacks.community.AirbiquityDevice.facades.AirbiquityDeviceFacade"
             />
                 
             <browser:resourceDirectory
                     name="AirbiquityDevice"
                     directory="resources"
             />
-                
+
             <!-- Component Info -->
-            <adapter factory=".info.AirbiquityTrunkInfo"
-                for=".AirbiquityTrunk.AirbiquityTrunk"
-                provides=".interfaces.IAirbiquityTrunkInfo"
+            <adapter factory="ZenPacks.community.AirbiquityDevice.info.AirbiquityTrunkInfo"
+                for="ZenPacks.community.AirbiquityDevice.AirbiquityTrunk.AirbiquityTrunk"
+                provides="ZenPacks.community.AirbiquityDevice.interfaces.IAirbiquityTrunkInfo"
             />
     
             <browser:viewlet
@@ -43,8 +45,11 @@
                 permission="zope2.Public"
             />
 
+            <utility provides="zope.schema.interfaces.IVocabularyFactory"
+                component=".info.AirbiquityTrunkgetEventClassesVocabulary"
+                name="AirbiquityTrunkgetEventClasses"
+            />
 
-        
         </configure>
     </configure>
 

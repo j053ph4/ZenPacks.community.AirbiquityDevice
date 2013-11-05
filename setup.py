@@ -3,12 +3,12 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.community.AirbiquityDevice"
-VERSION = "1.0"
+VERSION = "1.1"
 AUTHOR = "Joseph Anderson"
 LICENSE = "Apache"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']
 PACKAGES = ['ZenPacks', 'ZenPacks.community', 'ZenPacks.community.AirbiquityDevice']
-INSTALL_REQUIRES = ['ZenPacks.Agero.CircuitBreaker']
+INSTALL_REQUIRES = ['ZenPacks.community.ConstructionKit']
 COMPAT_ZENOSS_VERS = ">=3.0"
 PREV_ZENPACK_NAME = ""
 # STOP_REPLACEMENTS

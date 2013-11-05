@@ -1,14 +1,9 @@
-from zope.interface import implements
-from Products.Zuul.infos import ProxyProperty
-from Products.Zuul.infos.component import ComponentInfo
-from ZenPacks.community.AirbiquityDevice.interfaces import *
+from ZenPacks.community.ConstructionKit.ClassHelper import *
 
-'''
-args:  zenpack,compInfo,compInterface,infoProperties
-'''
+def AirbiquityTrunkgetEventClassesVocabulary(context):
+    return SimpleVocabulary.fromValues(context.listgetEventClasses())
 
-class AirbiquityTrunkInfo(ComponentInfo):
-    implements( IAirbiquityTrunkInfo )
-    trunkID = ProxyProperty('trunkID')
+class AirbiquityTrunkInfo(ClassHelper.AirbiquityTrunkInfo):
+    ''''''
 
 

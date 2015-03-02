@@ -596,5 +596,8 @@ AVERAGE
 </object>
 <!-- ('', 'zport', 'dmd', 'Events', 'App', 'Airbiquity') -->
 <object id='/zport/dmd/Events/App/Airbiquity' module='Products.ZenEvents.EventClass' class='EventClass'>
+<property type="text" id="transform" mode="w" >
+setPDKey('telecomServiceKey')
+</property>
 </object>
 </objects>

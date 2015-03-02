@@ -2,7 +2,7 @@ from ZenPacks.community.ConstructionKit.BasicDefinition import *
 from ZenPacks.community.ConstructionKit.Construct import *
 
 AirbiquityDefinition = type('AirbiquityDefinition', (BasicDefinition,), {
-        'version' : Version(1, 1, 0),
+        'version' : Version(1, 1, 1),
         'zenpackbase': "AirbiquityDevice",
         'component' : 'AirbiquityTrunk',
         'componentData' : {
@@ -10,5 +10,5 @@ AirbiquityDefinition = type('AirbiquityDefinition', (BasicDefinition,), {
                           'plural': 'Airbiquity Trunks',
                           'properties': {'trunkID': addProperty('Trunk ID','Basic',optional='false'),},
                           },
-        }
-)
+        'componentMethods': [],
+})
